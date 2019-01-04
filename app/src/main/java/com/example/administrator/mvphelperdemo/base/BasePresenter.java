@@ -5,6 +5,6 @@ public interface BasePresenter {
     void onSuccess();
 
     //请求网络失败
-    void onFail(String msgi);
+    void onFail(String msg);
 
 }

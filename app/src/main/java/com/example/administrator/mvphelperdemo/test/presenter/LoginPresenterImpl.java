@@ -20,7 +20,7 @@ public class LoginPresenterImpl implements LoginPresenter {
         iLoginModel = new LoginModelImpl();
     }
 
-    public void login(){
+      public void login(){
         //将View 中的参数获取出来
         String name = iLoginView.getName();
         String passWord = iLoginView.getPassWord();
