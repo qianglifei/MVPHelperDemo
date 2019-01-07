@@ -14,7 +14,9 @@ public class RxManager {
     public RxBus mRxBus = RxBus.getInstance();
 
     /**
+     *
      *管理Observables 和 Subscribers订阅
+     *
      */
     private CompositeDisposable  mCompositeDisposable = new CompositeDisposable();
 
@@ -25,7 +27,6 @@ public class RxManager {
      */
     public <T>void on(Class<T> eventName, Consumer consumer) {
         Flowable<T> register = mRxBus.register(eventName);
-        //mFlowable.put(eventName, register);
         /**
          * 订阅管理
          */

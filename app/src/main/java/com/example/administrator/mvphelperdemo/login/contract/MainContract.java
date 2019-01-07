@@ -20,8 +20,6 @@ public interface MainContract {
 
     interface View extends BaseView {
         void updateUI(ResponseBody responseBody);
-        void clearName();
-        void clearPassword();
     }
 
     interface Presenter extends BasePresenter {

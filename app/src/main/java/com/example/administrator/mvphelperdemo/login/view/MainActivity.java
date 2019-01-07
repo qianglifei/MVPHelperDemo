@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.administrator.mvphelperdemo.R;
+import com.example.administrator.mvphelperdemo.base.BaseActivity;
 import com.example.administrator.mvphelperdemo.login.contract.MainContract;
 import com.example.administrator.mvphelperdemo.login.presenter.MainPresenterImpl;
 import com.example.administrator.mvphelperdemo.util.ToastUtils;
@@ -18,7 +20,7 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends BaseActivity<MainPresenterImpl> implements MainContract.View {
     String name = "123456";
     String password = "a00000";
     private MainContract.Presenter mPresenter;
@@ -26,15 +28,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        initPresenter();
-
         initEvent();
     }
 
-    private void initPresenter() {
+    @Override
+    protected void createPresenter() {
         mPresenter = new MainPresenterImpl(this);
     }
+
+    @Override
+    public int getLayoutResource() {
+        return R.layout.activity_main;
+    }
+
     private void initEvent() {
         HashMap<String,String> hashMap = new HashMap<>();
         hashMap.put("yhzh","15210603710");
@@ -61,15 +67,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void clearName() {
-        name = "";
-    }
-
-    @Override
-    public void clearPassword() {
-        password = "";
     }
 }

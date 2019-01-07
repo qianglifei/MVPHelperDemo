@@ -57,8 +57,6 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
 //        this(context, context.getString(R.string.loading),showDialog);
 //    }
 
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -73,7 +71,11 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
 
     @Override
     public void onNext(T t) {
-        _onNext(t);
+        try {
+            _onNext(t);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

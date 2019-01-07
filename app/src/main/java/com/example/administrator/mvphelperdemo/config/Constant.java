@@ -8,6 +8,7 @@ package com.example.administrator.mvphelperdemo.config;
  */
 
 public class Constant {
+
     private static final String IP = "192.168.130.72:8086/grapp/dlzc/dlzc/grdlCx";
 
     public static final String BASE_URL ="http://" + IP + "/";

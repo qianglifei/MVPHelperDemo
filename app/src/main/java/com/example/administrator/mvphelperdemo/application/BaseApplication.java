@@ -26,7 +26,7 @@ public class BaseApplication extends Application {
     private Set<Activity> allActivities;
     public final static String APP_PACKET_NAME = "com.moible.bksx.xcb.retrofitmvpdemo";
 
-   // private static DaoSession mDaoSession;
+   //private static DaoSession mDaoSession;
 
     public BaseApplication(){
 
