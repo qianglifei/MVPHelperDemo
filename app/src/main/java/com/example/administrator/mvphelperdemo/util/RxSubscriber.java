@@ -31,7 +31,7 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
 
     private Context mContext;
     private String msg;
-    private boolean showDialog=true;
+    private boolean showDialog = true;
 
     /**
      * 是否显示浮动dialog
@@ -49,13 +49,13 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
         this.showDialog = showDialog;
     }
 
-//    public RxSubscriber(Context context) {
-//        this(context, context.getString(R.string.loading),true);
-//    }
-//
-//    public RxSubscriber(Context context, boolean showDialog) {
-//        this(context, context.getString(R.string.loading),showDialog);
-//    }
+    public RxSubscriber(Context context) {
+        this(context, "正在加载",true);
+    }
+
+    public RxSubscriber(Context context, boolean showDialog) {
+        this(context, "正在加载",showDialog);
+    }
 
     @Override
     public void onStart() {
@@ -71,11 +71,7 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
 
     @Override
     public void onNext(T t) {
-        try {
-            _onNext(t);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        _onNext(t);
     }
 
     @Override
@@ -103,7 +99,7 @@ public abstract class RxSubscriber<T> extends DisposableSubscriber<T> {
         }
     }
 
-    protected abstract void _onNext(T t) throws IOException;
+    protected abstract void _onNext(T t) ;
 
     protected abstract void _onError(String message);
 

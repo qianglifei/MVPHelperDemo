@@ -25,6 +25,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
         //初始化Title
         initTitle();
+
         //初始化事件
         initEvent();
     }

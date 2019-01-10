@@ -16,7 +16,8 @@ public class RxSchedulers {
 
             @Override
             public Publisher<T> apply(Flowable<T> upstream) {
-                return  upstream.
+                return  //上游（被订阅者）
+                        upstream.
                         //被观察者切换到子线程
                         subscribeOn(Schedulers.io()).
                         //观察者切换到主线程
@@ -24,5 +25,8 @@ public class RxSchedulers {
             }
         };
     }
+
+
+
 
 }

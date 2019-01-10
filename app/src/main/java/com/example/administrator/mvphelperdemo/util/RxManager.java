@@ -53,7 +53,7 @@ public class RxManager {
      */
     public void clear() {
         mRxBus.unregisterAll();
-        // 取消所有订阅
+        //取消所有订阅
         mCompositeDisposable.clear();
 
     }

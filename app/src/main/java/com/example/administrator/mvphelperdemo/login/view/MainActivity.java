@@ -1,9 +1,11 @@
 package com.example.administrator.mvphelperdemo.login.view;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.administrator.mvphelperdemo.R;
 import com.example.administrator.mvphelperdemo.base.BaseActivity;
@@ -62,10 +64,18 @@ public class MainActivity extends BaseActivity<MainPresenterImpl> implements Mai
 
     @Override
     public void updateUI(ResponseBody responseBody) {
-        try {
-            ToastUtils.showToast(mContext,responseBody.string());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Log.i("TAG", "====updateUI: ");
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Log.i("TAG", "====updateUI: " + responseBody.string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
     }
 }
