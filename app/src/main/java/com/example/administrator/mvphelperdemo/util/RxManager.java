@@ -55,9 +55,7 @@ public class RxManager {
         mRxBus.unregisterAll();
         //取消所有订阅
         mCompositeDisposable.clear();
-
     }
-
 
     /**
      * 发送rxbus

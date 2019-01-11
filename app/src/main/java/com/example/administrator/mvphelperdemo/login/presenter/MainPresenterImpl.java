@@ -30,7 +30,7 @@ public class MainPresenterImpl implements MainContract.Presenter {
 
     private MainContract.View iMainView;
     private MainContract.Model iMainModel;
-    private RxManager mRxmanager;
+    public RxManager mRxmanager;
     public MainPresenterImpl(MainContract.View iMainView){
         this.iMainView = iMainView;
         iMainModel = new MainModelImpl();
@@ -79,7 +79,11 @@ public class MainPresenterImpl implements MainContract.Presenter {
 
         boolean ble = rxSubscriber.isDisposed();
 
+
+        mRxmanager.add(rxSubscriber);
         Log.i(TAG, "===postSendLoginData: " + ble);
+
+
         //rxSubscriber.dispose();
 
 
@@ -101,12 +105,7 @@ public class MainPresenterImpl implements MainContract.Presenter {
     }
 
     @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFail(String msg) {
-
+    public void onDestroy() {
+        mRxmanager.clear();
     }
 }

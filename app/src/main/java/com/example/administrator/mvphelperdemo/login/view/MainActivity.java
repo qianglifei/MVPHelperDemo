@@ -27,6 +27,8 @@ public class MainActivity extends BaseActivity<MainPresenterImpl> implements Mai
     String password = "a00000";
     private MainContract.Presenter mPresenter;
     private Context mContext = this;
+
+    private static final String  TAG = "MainActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,14 @@ public class MainActivity extends BaseActivity<MainPresenterImpl> implements Mai
 
             }
         });
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //解除绑定
+        mPresenter.onDestroy();
+
+        Log.i(TAG, "===onDestroy: " + "解绑。。。");
     }
 }

@@ -49,8 +49,4 @@ public class MainModelImpl implements MainContract.Model {
      *
      *
      */
-
-
-
-
 }
